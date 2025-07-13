@@ -1,0 +1,7 @@
+Selenium:
+
+Web Driver - It is an interface not class.
+-> Its not a class because if its a class we need to explicity define all its methods.
+-> All Browser follow same basic implementation setup as per the W3 - World Wide Web, due to which we can use their method by calling them.
+
+In Selenium when we call a method, internally they all work as an API - Application Programing Interface.
