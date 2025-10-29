@@ -1,1 +1,70 @@
-Key Details
+Code Comparison: A Practical Example
+The easiest way to see the difference is to look at the code. Here is the same simple test in both languages: "Open Chrome, go to Google, find the search bar, type 'Selenium', and close the browser."
+
+🐍 Selenium with Python
+Notice how clean and readable this is. There's very little "boilerplate" code.
+
+Python
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+# 1. Set up the driver
+driver = webdriver.Chrome()
+
+# 2. Navigate to Google
+driver.get("https://www.google.com")
+
+# 3. Find the search bar and type "Selenium"
+# (Using the 'By' class is the modern, recommended way)
+search_box = driver.find_element(By.NAME, "q")
+search_box.send_keys("Selenium")
+search_box.send_keys(Keys.ENTER)
+
+# 4. Wait to see the results
+time.sleep(3) 
+
+# 5. Close the browser
+driver.quit()
+☕ Selenium with Java
+Notice the extra structure. You need a public class, a main method to run, and you must declare the type for every variable (e.g., WebDriver driver).
+
+Java
+
+// 1. Import necessary packages
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+// 2. Define a class
+public class GoogleSearchTest {
+
+    // 3. Define the main method to run
+    public static void main(String[] args) throws InterruptedException {
+
+        // 4. Set up the driver
+        WebDriver driver = new ChromeDriver();
+
+        // 5. Navigate to Google
+        driver.get("https://www.google.com");
+
+        // 6. Find the search bar and type "Selenium"
+        WebElement searchBox = driver.findElement(By.name("q"));
+        searchBox.sendKeys("Selenium");
+        searchBox.sendKeys(Keys.ENTER);
+
+        // 7. Wait to see the results
+        Thread.sleep(3000); // (Using Thread.sleep for simplicity)
+
+        // 8. Close the browser
+        driver.quit();
+    }
+}
+Which One Should You Choose?
+Choose Python if: You are new to programming, you want to write tests quickly, or your team values readability and speed of development.
+
+Choose Java if: You are in a company that already uses Java, you're building a very large and complex testing framework, or you need to integrate heavily with Java-based tools like Jenkins, Maven, and TestNG.
