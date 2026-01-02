@@ -1,0 +1,30 @@
+Page Object Model Design Pattern :
+
+1. Web Pages
+2. Page Objects (Variables & Methods)
+3. Test Scripts
+
+Note: Variables & Methods are stored separate from Test Scripts.
+
+Benefit of Page Object Model:
+
+1. Code Reusability
+2. Code Readability
+3. Code Maintainability
+
+Web Pages :       HOME Page               HELP Page
+                     |                        |
+Page Objects :    HomePage                 HelpPage
+              (Variables & Methods)     (Variables & Methods)
+
+Test Scripts : Now TS 1, TS 2 can have access to Page Object of HomePage & HelpPage simultaneously
+
+Note : TS can call the PO but PO will not make a call to  TS.
+       Also HomePage wil not make call between HelpPage also TS.
+In addition - Base Page & Page Object will be in main directory meanwhile Test script will be placed in Test directory.
+
+Points Need to take Care:
+
+1. If you have WebDriver APIs in your test methods, You are doing wrong (By Simon Stewart)
+2. I prefer to include assertions in my Test Scripts and not the BasePage or Page Object class.
+3. We verify our Test Scripts and we do not verify the Page Object class.

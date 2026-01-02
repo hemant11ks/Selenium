@@ -46,6 +46,8 @@ public class FirstSeleniumTest {
         String expectedResult = "Dashboard";
 
         Assert.assertEquals(actualResult, expectedResult);
+        // If we need to fail test on purpose we can use
+        // Assert.assertNotEquals(actualResult, expectedResult);
     }
 
 }
